@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Netflix Clone By Kavesh</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-left">
+
+            <div class="logo">NETFLIX <span>BY KAVESH</span></div>
+
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">TV Shows</a>
+                <a href="#">Movies</a>
+                <a href="#">New & Popular</a>
+                <a href="#">My List</a>
+            </nav>
+
+        </div>
+
+        <div class="nav-right">
+
+            <button class="search-btn" id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <div class="search-box" id="searchBox">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search movies and shows..."
+                >
+            </div>
+
+            <div class="notification">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+
+            <div class="profile">
+                <img
+                    src="kj.png"
+                    alt="Profile"
+                >
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-background"></div>
+
+        <div class="hero-content">
+
+            <span class="series-label">
+                <span>N</span> SERIES
+            </span>
+
+            <h1>STRANGER<br>THINGS</h1>
+
+            <div class="hero-info">
+                <span>2022</span>
+                <span>4 Seasons</span>
+                <span class="quality">HD</span>
+                <span class="age">16+</span>
+            </div>
+
+            <p>
+                When a young boy vanishes, a small town uncovers
+                a mystery involving secret experiments, terrifying
+                supernatural forces and a strange little girl.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="play-btn" onclick="openHeroModal()">
+                    <i class="fa-solid fa-play"></i>
+                    Play
+                </button>
+
+                <button class="list-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    My List
+                </button>
+
+            </div>
+
+        </div>
+
+        <button class="hero-arrow left">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <button class="hero-arrow right">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="hero-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+        <!-- Trending -->
+        <section class="movie-section">
+
+            <div class="section-title">
+                <h2>Trending Now</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="trendingRow"></div>
+
+        </section>
+
+
+        <!-- Popular -->
+        <section class="movie-section">
+
+            <div class="section-title">
+                <h2>Popular on Netflix</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="popularRow"></div>
+
+        </section>
+
+
+        <!-- Top 10 -->
+        <section class="movie-section top-section">
+
+            <div class="section-title">
+                <h2>Top 10 in India Today</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="topRow"></div>
+
+        </section>
+
+
+        <!-- Action -->
+        <section class="movie-section">
+
+            <div class="section-title">
+                <h2>Action & Adventure</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="actionRow"></div>
+
+        </section>
+
+
+        <!-- Comedy -->
+        <section class="movie-section">
+
+            <div class="section-title">
+                <h2>Comedy</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="comedyRow"></div>
+
+        </section>
+
+
+        <!-- Horror -->
+        <section class="movie-section">
+
+            <div class="section-title">
+                <h2>Horror</h2>
+                <span>See all <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="movie-row" id="horrorRow"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= MOVIE MODAL ================= -->
+
+    <div class="modal" id="movieModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Movie"
+            >
+
+            <div class="modal-overlay"></div>
+
+            <div class="modal-info">
+
+                <h2 id="modalTitle">Movie Title</h2>
+
+                <div class="modal-meta">
+                    <span id="modalYear">2024</span>
+                    <span>HD</span>
+                    <span id="modalRating">8.5</span>
+                    <span>16+</span>
+                </div>
+
+                <p id="modalDescription">
+                    Movie description goes here.
+                </p>
+
+                <div class="modal-buttons">
+
+                    <button class="play-btn">
+                        <i class="fa-solid fa-play"></i>
+                        Play
+                    </button>
+
+                    <button class="list-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        My List
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SEARCH RESULTS ================= -->
+
+    <section class="search-results" id="searchResults">
+
+        <div class="search-heading">
+            <h2>Search Results</h2>
+            <span id="resultCount"></span>
+        </div>
+
+        <div class="search-grid" id="searchGrid"></div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">NETFLIX</div>
+
+        <p class="questions">
+            Questions? Call 000-800-919-1694
+        </p>
+
+        <div class="footer-links">
+
+            <div>
+                <a href="#">FAQ</a>
+                <a href="#">Investor Relations</a>
+                <a href="#">Privacy</a>
+                <a href="#">Speed Test</a>
+            </div>
+
+            <div>
+                <a href="#">Help Centre</a>
+                <a href="#">Jobs</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Legal Notices</a>
+            </div>
+
+            <div>
+                <a href="#">Account</a>
+                <a href="#">Ways to Watch</a>
+                <a href="#">Corporate Information</a>
+                <a href="#">Only on Netflix</a>
+            </div>
+
+            <div>
+                <a href="#">Media Centre</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Accessibility</a>
+            </div>
+
+        </div>
+
+        <div class="language">
+            <i class="fa-solid fa-globe"></i>
+            English
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <p class="copyright">
+            © 2026 Netflix Clone. Made for educational purposes.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
